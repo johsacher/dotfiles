@@ -1,0 +1,29 @@
+#!/bin/bash
+# still todo
+# for now: gsyn_up after every change / gsyn_down when switching device
+
+set -u
+set -e
+
+echo "installing/updating .dotfiles..."
+
+# add or replace in .bashrc source of mybashrc
+grep_result=$(cat ~/.bashrc | grep ".mybashrc_all")
+
+if [ -z "$grep_result" ]
+then #empty
+    echo "source ~/.dotfiles/.mybashrc_all" >> .bashrc
+    # echo "empty --> append source-command"
+else
+    # echo "not empty --> replace source-command"
+    sed -i 's%^.*mybashrc_all.*$%source ~/\.dotfiles/\.mybashrc_all%g' ~/.bashrc
+fi
+echo "    put source-command into the ~/.bashrc: source ~/.dotfiles/.mybashrc_all" 
+
+ln -sfn  ~/.dotfiles/.inputrc ~/.inputrc
+echo "    created symlink: ~/.inputrc --> ~/.dotfiles/.inputrc" 
+# option -fn --> effect of overwrite
+ln -sfn  ~/.dotfiles/.emacs ~/.emacs
+echo "    created symlink: ~/.emacs --> ~/.dotfiles/.emacs" 
+ln -sfn  ~/.dotfiles/.termux ~/.termux
+echo "    created symlink: ~/.termux --> ~/.dotfiles/.termux" 

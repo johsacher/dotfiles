@@ -1,0 +1,22 @@
+# ubuntu
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": backward-char
+"\e[D": forward-char
+
+# "\eOA": history-search-backward
+# "\eOB": history-search-forward
+# "\eOC": backward-char
+# "\eOD": forward-char
+
+"\ep": history-search-backward
+"\en": history-search-forward
+
+
+# comment/learnings:
+# this thing and all docs on the web are a ****** shit!
+# practical guide (without understanding EXACTLY WHY!! D:):
+# * get the sent escape code by typing in terminal >> cat <ENTER> --> then type key(-sequence) 
+# * then replace any ^[ by \e
+# * e.g. : Alt-p gives ^[p --> so put into .inputrc:
+# *\ep": <some-command> 

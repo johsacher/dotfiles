@@ -7,7 +7,7 @@ set -e
 
 echo "installing/updating .dotfiles..."
 
-# add or replace in .bashrc source of mybashrc
+#* add or replace in .bashrc source of mybashrc
 grep_result=$(cat ~/.bashrc | grep ".mybashrc_all")
 
 if [ -z "$grep_result" ]
@@ -20,10 +20,20 @@ else
 fi
 echo "    put source-command into the ~/.bashrc: source ~/.dotfiles/.mybashrc_all" 
 
+
+#* symlinks (delete existing dotfiles)
+#** inputrc
+rm -f $HOME/.inputrc 
 ln -sfn  ~/.dotfiles/.inputrc ~/.inputrc
-echo "    created symlink: ~/.inputrc --> ~/.dotfiles/.inputrc" 
 # option -fn --> effect of overwrite
+echo "    deleted and created symlink: ~/.inputrc --> ~/.dotfiles/.inputrc" 
+#** .emacs
+rm -f $HOME/.emacs 
 ln -sfn  ~/.dotfiles/.emacs ~/.emacs
-echo "    created symlink: ~/.emacs --> ~/.dotfiles/.emacs" 
+echo "    deleted and created symlink: ~/.emacs --> ~/.dotfiles/.emacs" 
+
+
+#** .termux
+rm -rf $HOME/.termux 
 ln -sfn  ~/.dotfiles/.termux ~/.termux
-echo "    created symlink: ~/.termux --> ~/.dotfiles/.termux" 
+echo "    deleted and created symlink: ~/.termux --> ~/.dotfiles/.termux" 

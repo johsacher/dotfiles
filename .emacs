@@ -8,3 +8,4 @@
 
 (load "~/MyEmacsConfig/my_emacs_init.el")
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

@@ -12,7 +12,7 @@ grep_result=$(cat ~/.bashrc | grep ".mybashrc_all")
 
 if [ -z "$grep_result" ]
 then #empty
-    echo "source ~/.dotfiles/.mybashrc_all" >> .bashrc
+    echo "source ~/.dotfiles/.mybashrc_all" >> ~/.bashrc
     # echo "empty --> append source-command"
 else
     # echo "not empty --> replace source-command"

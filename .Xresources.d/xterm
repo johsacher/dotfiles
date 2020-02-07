@@ -1,0 +1,10 @@
+# customization of xterm -> to be good ssh-remote-emacs terminal for emacs/shell on server.
+#* disable most keyboard short cuts -> "let it all be passed through" so i have access to all thinkable keybindings
+#* disable make esc-key delay, annoying when in vim/evil-mode
+#* best link:  https://wiki.archlinux.org/index.php/Xterm#Configuration
+
+#* escape issue
+#  yeah i now this is wucking confusing. but linux and "normal" terminoligy are kind a reversed here:
+# linux-"escape" = normal "alt"
+# linux-"meta" ... now i m confused --> todo: continue further research here!
+# XTerm.vt100.metaSendsEscape: true  

@@ -37,3 +37,5 @@ echo "    deleted and created symlink: ~/.emacs --> ~/.dotfiles/.emacs"
 rm -rf $HOME/.termux 
 ln -sfn  ~/.dotfiles/.termux ~/.termux
 echo "    deleted and created symlink: ~/.termux --> ~/.dotfiles/.termux" 
+
+#** xterm-settings

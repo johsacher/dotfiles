@@ -1,0 +1,7 @@
+# it is recommended to include grouped settings here like this (e.g. xterm-settings)
+# (link: https://wiki.archlinux.org/index.php/X_resources )
+#include ".Xresources.d/xterm"
+! #include ".Xresources.d/rxvt-unicode"
+! #include ".Xresources.d/fonts"
+! #include ".Xresources.d/xscreensaver"
+

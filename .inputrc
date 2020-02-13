@@ -4,10 +4,12 @@
 "\e[C": backward-char
 "\e[D": forward-char
 
-# "\eOA": history-search-backward
-# "\eOB": history-search-forward
-# "\eOC": backward-char
-# "\eOD": forward-char
+# arrow up/down
+"\eOA": history-search-backward
+"\eOB": history-search-forward
+#
+"\eOC": backward-char
+"\eOD": forward-char
 
 "\ep": history-search-backward
 "\en": history-search-forward

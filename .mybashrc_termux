@@ -4,4 +4,4 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
 	ssh-add
 fi
 
-ssh-add ~/.ssh/id_rsa_hlrn
+# ssh-add ~/.ssh/id_rsa_hlrn

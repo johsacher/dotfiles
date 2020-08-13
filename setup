@@ -40,8 +40,14 @@ rm -f $HOME/.emacs
 ln -sfn  "$DotFilesDir"/.emacs ~/.emacs
 echo "    deleted and created symlink: ~/.emacs --> "$DotFilesDir"/.emacs" 
 
+#** screenrc
+rm -f $HOME/.screenrc 
+ln -sfn  "$DotFilesDir"/.screenrc ~/.screenrc
+# option -fn --> effect of overwrite
+echo "    deleted and created symlink: ~/.screenrc --> "$DotFilesDir"/.screenrc" 
 
-#** .termux
+
+#** .termux (todo, but not now, cosmetic -> only install this on android phones)
 rm -rf $HOME/.termux 
 ln -sfn  "$DotFilesDir"/.termux ~/.termux
 echo "    deleted and created symlink: ~/.termux --> "$DotFilesDir"/.termux" 

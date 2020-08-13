@@ -1,0 +1,4 @@
+escape ^Tt 
+setenv MY_SCREEN_SESSION_TYPE "Screen My Standard ~/.screenrc"
+
+maptimeout 0

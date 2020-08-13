@@ -5,37 +5,41 @@
 set -u
 set -e
 
-echo "installing/updating .dotfiles..."
+echo "installing/updating DotFiles..."
+DotFilesDir=~/DotFiles
 
 #* add or replace in .bashrc source of mybashrc
 grep_result=$(cat ~/.bashrc | grep ".mybashrc_all")
 
 if [ -z "$grep_result" ]
 then #empty
-    echo "source ~/.dotfiles/.mybashrc_all" >> ~/.bashrc
+    echo "source "$DotFilesDir"/.mybashrc_all" >> ~/.bashrc
     # echo "empty --> append source-command"
+    echo "    put source-command into the ~/.bashrc: source "$DotFilesDir"/.mybashrc_all" 
 else
     # echo "not empty --> replace source-command"
-    sed -i 's%^.*mybashrc_all.*$%source ~/\.dotfiles/\.mybashrc_all%g' ~/.bashrc
+    sed -i 's%^.*mybashrc_all.*$%source '$DotFilesDir'/\.mybashrc_all%g' ~/.bashrc
+    echo "    put source-command into the ~/.bashrc: source "$DotFilesDir"/.mybashrc_all" 
+    echo "    (was already there: $grep_result )"
+    echo "    (replaced this line)"
 fi
-echo "    put source-command into the ~/.bashrc: source ~/.dotfiles/.mybashrc_all" 
 
 
 #* symlinks (delete existing dotfiles)
 #** inputrc
 rm -f $HOME/.inputrc 
-ln -sfn  ~/.dotfiles/.inputrc ~/.inputrc
+ln -sfn  "$DotFilesDir"/.inputrc ~/.inputrc
 # option -fn --> effect of overwrite
-echo "    deleted and created symlink: ~/.inputrc --> ~/.dotfiles/.inputrc" 
+echo "    deleted and created symlink: ~/.inputrc --> "$DotFilesDir"/.inputrc" 
 #** .emacs
 rm -f $HOME/.emacs 
-ln -sfn  ~/.dotfiles/.emacs ~/.emacs
-echo "    deleted and created symlink: ~/.emacs --> ~/.dotfiles/.emacs" 
+ln -sfn  "$DotFilesDir"/.emacs ~/.emacs
+echo "    deleted and created symlink: ~/.emacs --> "$DotFilesDir"/.emacs" 
 
 
 #** .termux
 rm -rf $HOME/.termux 
-ln -sfn  ~/.dotfiles/.termux ~/.termux
-echo "    deleted and created symlink: ~/.termux --> ~/.dotfiles/.termux" 
+ln -sfn  "$DotFilesDir"/.termux ~/.termux
+echo "    deleted and created symlink: ~/.termux --> "$DotFilesDir"/.termux" 
 
 #** xterm-settings

@@ -9,23 +9,27 @@ echo "installing/updating DotFiles..."
 DotFilesDir=~/DotFiles
 
 #* add or replace in .bashrc source of mybashrc
-grep_result=$(cat ~/.bashrc | grep ".mybashrc_all")
+echo '* look in file ~/.bashrc for line containing .mybashrc_all, and poss. replace or add line to source it' 
+grep_result=$(cat ~/.bashrc | grep '.mybashrc_all' || true) # '|| true is necessary to prevent exiting under set -e, since grep has exit code 0, when it finds nothing (i could have taken 'if cat ... | grep ...' directly in if statement, but i prefer to have maintainability by having the "grep_result" variable at my disposal) 
+echo "    grep_result = $grep_result"
+echo
 
 if [ -z "$grep_result" ]
 then #empty
+    echo '    no line found in ~/.bashrc with "... mybashrc_all"' 
     echo "source "$DotFilesDir"/.mybashrc_all" >> ~/.bashrc
     # echo "empty --> append source-command"
-    echo "    put source-command into the ~/.bashrc: source "$DotFilesDir"/.mybashrc_all" 
+    echo "    --> I have put source-command into the ~/.bashrc: source "$DotFilesDir"/.mybashrc_all" 
 else
-    # echo "not empty --> replace source-command"
+    echo '    line found in ~/.bashrc with "... mybashrc_all"' 
+    echo ' --> replace the line with: source '$DotFilesDir'/\.mybashrc_all'
     sed -i 's%^.*mybashrc_all.*$%source '$DotFilesDir'/\.mybashrc_all%g' ~/.bashrc
     echo "    put source-command into the ~/.bashrc: source "$DotFilesDir"/.mybashrc_all" 
-    echo "    (was already there: $grep_result )"
-    echo "    (replaced this line)"
 fi
 
 
 #* symlinks (delete existing dotfiles)
+echo '* symlinks (delete existing dotfiles)' 
 #** inputrc
 rm -f $HOME/.inputrc 
 ln -sfn  "$DotFilesDir"/.inputrc ~/.inputrc

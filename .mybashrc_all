@@ -1,9 +1,11 @@
-##* TERMINAL APPEARANCE (my stuff)
+##* TERMINAL APPEARANCE
 ##** command line
 PS1="\[\033[32m\][\w]\[\033[0m\]\n\[\033[1;33m\]\u@\h\[\033[1;33m\]\$ \[\033[0m\]"
 
+##* path for my apps -> PREPAND, so ~/bin is priority over system executables with same name, e.g. emacs
+export PATH="$HOME/bin:$PATH"
 
-###* enable X-forwarding in GNU screen sessions
+##* enable X-forwarding in GNU screen sessions
 export DISPLAY=$DISPLAY
 
 ##* enable color support of ls and also add handy aliases

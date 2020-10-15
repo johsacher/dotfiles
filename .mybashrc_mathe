@@ -1,3 +1,6 @@
+# for my emacs to recognize my machine
+export MYHOST=mathe
+
 # mathe cluster specific
 #* frequent paths
 export FAST='/fast/sacher'

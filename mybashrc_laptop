@@ -1,2 +1,2 @@
 # for my emacs to recognize my machine
-export MYHOST=local
+export MYHOST=laptop

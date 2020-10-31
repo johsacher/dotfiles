@@ -20,10 +20,4 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-##* my "git-sync-tool"
-gsyn_file="$HOME/.gsyn/gsyn"
-if [[ -f $gsyn_file ]] ; then
-    # echo "gsyn-tool found"
-    source $gsyn_file
-fi
-
+MYBASHRC_ALL_SOURCED=true
